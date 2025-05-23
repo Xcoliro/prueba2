@@ -1,0 +1,15 @@
+{
+  "name": "Flutter Dev Container",
+  "image": "mcr.microsoft.com/devcontainers/flutter:stable",
+  "features": {},
+  "postCreateCommand": "flutter doctor",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "dart-code.flutter",
+        "dart-code.dart-code"
+      ]
+    }
+  },
+  "remoteUser": "vscode"
+}
