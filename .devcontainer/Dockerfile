@@ -7,8 +7,14 @@ RUN apt-get update && apt-get install -y \
 
 # Instala Flutter
 ENV FLUTTER_HOME=/opt/flutter
-RUN git clone https://github.com/flutter/flutter.git -b stable $FLUTTER_HOME
+RUN git clone https://github.com/flutter/flutter.git -b stable $FLUTTER_HOME \
+    && chown -R vscode:vscode $FLUTTER_HOME
+
 ENV PATH="$FLUTTER_HOME/bin:$PATH"
+
+# Configura git para evitar error de seguridad
+USER vscode
+RUN git config --global --add safe.directory /opt/flutter
 
 # Precache de herramientas Flutter
 RUN flutter doctor
