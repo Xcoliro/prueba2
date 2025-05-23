@@ -10,5 +10,8 @@ ENV FLUTTER_HOME=/opt/flutter
 RUN git clone https://github.com/flutter/flutter.git -b stable $FLUTTER_HOME
 ENV PATH="$FLUTTER_HOME/bin:$PATH"
 
-# Precache
+# Precache de herramientas Flutter
 RUN flutter doctor
+
+# Verifica instalación
+RUN flutter --version
